@@ -7,8 +7,10 @@ const Profile = () => {
   const user = useAuthStore((state) => state.user);
 
   useEffect(() => {
-    getMe();
-  });
+    if (token) {
+      getMe();
+    }
+  }, [token, getMe]);
 
   console.log(token);
 
